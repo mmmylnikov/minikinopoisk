@@ -1,0 +1,17 @@
+{% extends "movies/base.html" %}
+
+{% load humanize %}
+{% load movie_extras %}
+
+
+{% block content %}
+  {% if movie_list %}
+    <div class="list-group">
+      {% for movie in movie_list %}
+      <a href="{{ movie.get_absolute_url }}" class="list-group-item list-group-item-action">{{ movie.title }} ({{ movie.year }})</a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>Не нашел подходящих фильмов</p>
+  {% endif %}
+{% endblock %}
