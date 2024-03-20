@@ -1,0 +1,14 @@
+{% extends "movies/base.html" %}
+
+{% block content %}
+<form method="post">
+    {% if form.errors %}
+    <div class="alert alert-warning" role="alert">
+        {{ form.errors }}
+    </div>
+    {% endif %}
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Добавить фильм</button>
+</form>
+{% endblock %}
